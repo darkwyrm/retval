@@ -1,4 +1,6 @@
 *.pyc
 .vscode/*
 .cache/*
+build/*
+dist/*
 retval.egg-info/*
