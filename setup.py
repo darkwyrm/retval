@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
 	name='retval',
-	version='1.0.0',
+	version='1.0.1',
 	description='a module for easy error-handling without exceptions',
 	long_description=read('README.md'),
 	long_description_content_type="text/markdown",
@@ -17,7 +17,7 @@ setup(
 	author='Jon Yoder',
 	author_email='jon@yoder.cloud',
 	license='MIT',
-	packages=find_packages(),
+	py_modules=['retval'],
 	classifiers=[
 		"Development Status :: 5 - Production/Stable",
 		"Intended Audience :: Developers",
