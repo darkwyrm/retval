@@ -91,4 +91,4 @@ This module exists because I was inspired to think about Python error-handling a
 
 ## Building
 
-This is a very simple but useful module. Running `python setup.py install` should be the thing needed.
+This is a very simple but useful module. Most people will just want to install it from pip. Running `python setup.py install` should be the thing needed.
