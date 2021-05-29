@@ -1,6 +1,6 @@
 '''Tests the RetVal class'''
 
-from retval.retval import RetVal, ErrOK, ErrBadParameterValue
+from retval.retval import ErrExceptionThrown, RetVal, ErrOK, ErrBadValue
 
 def test_setvalue():
 	'''Tests setvalue()'''
@@ -35,8 +35,8 @@ def test_error():
 	r = RetVal()
 	assert r.error() == ErrOK, '''instance not initialized to ErrOK state'''
 
-	r.set_error(ErrBadParameterValue)
-	assert r.error() == ErrBadParameterValue, '''instance not set to correct error state'''
+	r.set_error(ErrBadValue)
+	assert r.error() == ErrBadValue, '''instance not set to correct error state'''
 
 
 def test_count():
@@ -50,3 +50,21 @@ def test_count():
 	
 	r.empty()
 	assert r.count() == 0, '''Emptied instance is not empty'''
+
+
+def test_wrap_exception():
+	'''Tests the wrap_exception() method'''
+
+	r = RetVal()
+	try:
+		print(5 / 0)
+	except Exception as e:
+		r = RetVal().wrap_exception(e)
+	
+	assert r.error() == ErrExceptionThrown, 'instance has incorrect error code'
+	assert r.info(), 'instance has empty info field for exception'
+	assert isinstance(r['exception'], ZeroDivisionError), 'instance has wrong exception type'
+	assert r['exctype'] == 'ZeroDivisionError', 'instance has wrong exception type string'
+
+if __name__ == '__main__':
+	test_wrap_exception()

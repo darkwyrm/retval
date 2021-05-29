@@ -127,3 +127,16 @@ class RetVal:
 		'''Returns the number of values contained by the return value'''
 		
 		return len(self._fields) - 2
+
+	def wrap_exception(self, e: Exception):
+		'''Quickly wraps an exception into the instance. The actual Exception object is returned 
+		in 'exception' and the type of Exception is stored in 'exctype'. The return code is set to 
+		ErrExceptionThrown. The info field is set to the string value of the exception.'''
+
+		self._fields = {
+			'_error': ErrExceptionThrown,
+			'_info': str(e),
+			'exctype': type(e).__name__,
+			'exception': e,
+		}
+		return self
