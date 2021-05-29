@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
 	name='retval',
-	version='1.0',
+	version='1.0.0',
 	description='a module for easy error-handling without exceptions',
 	long_description=read('README.md'),
 	url='https://github.com/darkwyrm/retval',
