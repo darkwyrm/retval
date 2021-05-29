@@ -11,6 +11,9 @@ setup(
 	long_description=read('README.md'),
 	long_description_content_type="text/markdown",
 	url='https://github.com/darkwyrm/retval',
+	project_urls={
+		"Bug Tracker": "https://github.com/darkwyrm/retval/issues"
+	},
 	author='Jon Yoder',
 	author_email='jon@yoder.cloud',
 	license='MIT',
