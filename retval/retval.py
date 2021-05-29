@@ -4,18 +4,29 @@
 
 ErrOK = ''
 ErrNoError = ''
+
+# Often used to indicate data that is incorrectly formatted, such as a bad e-mail address string
 ErrBadData = 'ErrBadData'
-ErrBadParameterValue = 'ErrBadParameterValue'
-ErrBadParameterType = 'ErrBadParameterType'
-ErrEmptyData = 'ErrEmptyData'
+
+ErrBadValue = 'ErrBadValue'
+ErrBadType = 'ErrBadType'
+ErrBusy = 'ErrBusy'
+ErrEmptyData = 'ErrEmptyData' # Sometimes more helpful than ErrBadData or ErrBadValue
 ErrExceptionThrown = 'ErrExceptionThrown'
+ErrExists = 'ErrExists'
 ErrFilesystemError = 'ErrFilesystemError'
-ErrInternalError = 'ErrInternalError'
-ErrNetworkError = 'ErrNetworkError'
+ErrInit = 'ErrInit' # Uninitialized object
+ErrNotFound = 'ErrNotFound'
 ErrOSError = 'ErrOSError'
-ErrResourceExists = 'ErrResourceExists'
-ErrResourceNotFound = 'ErrResourceNotFound'
+ErrOutOfRange = 'ErrOutOfRange'
+ErrPermissions = 'ErrPermissions'
+
+ErrNetworkError = 'ErrNetworkError'
 ErrServerError = 'ErrServerError'
+ErrClientError = 'ErrClientError'
+
+ErrInternalError = 'ErrInternalError'
+ErrUnexpected = 'ErrUnexpected' # This should be needed only in rare cases
 ErrUnimplemented = 'ErrUnimplemented'
 
 class RetVal:
