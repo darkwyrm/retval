@@ -9,6 +9,7 @@ setup(
 	version='1.0.0',
 	description='a module for easy error-handling without exceptions',
 	long_description=read('README.md'),
+	long_description_content_type="text/markdown",
 	url='https://github.com/darkwyrm/retval',
 	author='Jon Yoder',
 	author_email='jon@yoder.cloud',
