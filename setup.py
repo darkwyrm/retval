@@ -15,7 +15,7 @@ setup(
 	license='MIT',
 	packages=find_packages(),
 	classifiers=[
-		"Development Status :: 5 - Production/Stable",
+		"Development Status :: 5 - Beta",
 		"Intended Audience :: Developers",
 		"Topic :: Software Development",
 		"Programming Language :: Python",
