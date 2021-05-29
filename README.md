@@ -14,7 +14,7 @@ This module provides RetVal, a class which powers up how you handle errors and r
 
 ## Status
 
-The module is production stable in active use.
+The module is production stable and in active use.
 
 ## Usage
 
@@ -22,7 +22,7 @@ Most usage of RetVal revolves around using the constructor to quickly package er
 
 ```python
 import json
-from retval import RetVal, ErrBadParameterType, ErrEmptyData, ErrExceptionThrown, ResourceExists
+from retval import RetVal, ErrBadType, ErrEmptyData, ErrExists
 
 ErrDecryptionFailure = 'decryption failure'
 
@@ -35,7 +35,7 @@ def save(self, path: str) -> RetVal:
 		return RetVal(ErrEmptyData, 'path may not be empty')
 	
 	if os.path.exists(path):
-		return RetVal(ErrResourceExists, f"{path} exists")
+		return RetVal(ErrExists, f"{path} exists")
 
 	try:
 		fhandle = open(path, 'w')
@@ -43,7 +43,9 @@ def save(self, path: str) -> RetVal:
 		fhandle.close()
 	
 	except Exception as e:
-		return RetVal(ErrExceptionThrown, str(e))
+		# This little gem allows you to elegantly handle any exception the same way as any other
+		# error
+		return RetVal().wrap_exception(e)
 
 	return RetVal()
 
@@ -56,7 +58,7 @@ def decrypt(self, encrypted_data: str) -> RetVal:
 		return RetVal(ErrEmptyData)
 	
 	if not isinstance(encdata, str):
-		return RetVal(ErrBadParameterType)
+		return RetVal(ErrBadType)
 
 	secretbox = nacl.secret.SecretBox(self.key.raw_data())
 	try:
@@ -84,7 +86,7 @@ The `encrypt()` function called in the above example is similar to `decrypt()`, 
 
 ## History
 
-This module exists because I was inspired to think about Python error-handling and return values after spending more than a little time learning Go. Go errors are little more than strings, which isn't great, but they are often paired with other return values. If no error is returned, then the other return value is safe to consider as valid. Go also doesn't have very many built-in error codes and are not very well documented. RetVal takes from the good and builds upon it. It integrates pretty easily into existing code and the extra contextual information makes debugging significantly easier.
+This module exists because I was inspired to think about Python error-handling and return values after spending more than a little time learning Go. Go errors are little more than strings, which isn't great, but they are often paired with other return values. If no error is returned, then the other return value is safe to consider as valid. Go also doesn't have very many built-in error codes and are not very well documented. RetVal takes from the good and builds upon it. It integrates pretty easily into existing code and the extra contextual information makes debugging significantly easier. Is it Pythonic? Most likely not. I don't care... it's made error-handling easier for me and I'm sure it will for you, too.
 
 ## Building
 
