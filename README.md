@@ -24,6 +24,7 @@ Most usage of RetVal revolves around using the constructor to quickly package er
 import json
 from retval import RetVal, ErrBadType, ErrEmptyData, ErrExists
 
+# Creating new error constants is super simple
 ErrDecryptionFailure = 'decryption failure'
 
 def save(self, path: str) -> RetVal:
