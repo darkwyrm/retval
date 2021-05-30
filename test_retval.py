@@ -1,6 +1,10 @@
 '''Tests the RetVal class'''
 
-from retval.retval import ErrExceptionThrown, RetVal, ErrOK, ErrBadValue
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from retval import ErrExceptionThrown, RetVal, ErrOK, ErrBadValue
 
 def test_setvalue():
 	'''Tests setvalue()'''
