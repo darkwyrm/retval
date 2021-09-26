@@ -26,6 +26,7 @@ ErrServerError = 'ErrServerError'
 ErrClientError = 'ErrClientError'
 
 ErrInternalError = 'ErrInternalError'
+ErrUnsupported = 'ErrUnsupported'
 ErrUnexpected = 'ErrUnexpected' # This should be needed only in rare cases
 ErrUnimplemented = 'ErrUnimplemented'
 
