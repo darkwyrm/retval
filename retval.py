@@ -20,6 +20,7 @@ ErrNotFound = 'ErrNotFound'
 ErrOSError = 'ErrOSError'
 ErrOutOfRange = 'ErrOutOfRange'
 ErrPermissions = 'ErrPermissions'
+ErrSize = 'ErrSize'
 
 ErrNetworkError = 'ErrNetworkError'
 ErrServerError = 'ErrServerError'
